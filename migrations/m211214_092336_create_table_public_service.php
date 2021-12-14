@@ -27,18 +27,4 @@ class m211214_092336_create_table_public_service extends Migration
         $this->dropTable('public_service');
     }
 
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m211214_092336_create_table_public_service cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }
