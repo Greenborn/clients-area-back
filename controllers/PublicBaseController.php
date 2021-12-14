@@ -7,6 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\filters\Cors;
 
 use app\traits\Filterable;
+use models\PublicInputHistory;
 
 class PublicBaseController extends ActiveController {
 
@@ -55,4 +56,11 @@ class PublicBaseController extends ActiveController {
       ]);
     }
 
+    private function regInput(){
+
+    }
+
+    private function cuotaNotExceded(){
+      return true;
+    }
 }
