@@ -16,7 +16,10 @@ class m211214_095913_inserts_f_public_service_contact_message extends Migration
             [   
                 'id'          => 1,
                 'name'        => 'cnt_msg', 
-                'description' => 'Mensages de Contacto Web' 
+                'description' => 'Mensages de Contacto Web',
+                'controller'  => 'ContactMessageController',
+                'action'      => '*',
+                'method'      => '*'
             ]);
         $this->insert('public_service_couta_meter',
             [ 

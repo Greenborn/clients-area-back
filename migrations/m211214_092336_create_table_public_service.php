@@ -16,6 +16,9 @@ class m211214_092336_create_table_public_service extends Migration
             'id'             => $this->primaryKey(),
             'name'           => $this->string()->notNull(),
             'description'    => $this->string()->notNull(),
+            'controller'     => $this->string()->notNull(),
+            'method'         => $this->string(),
+            'action'         => $this->string()
         ]);
     }
 

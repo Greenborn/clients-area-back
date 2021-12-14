@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\PublicServiceCoutaMeter;
 
 /**
  * This is the model class for table "public_service_couta".
@@ -56,7 +57,7 @@ class PublicServiceCuota extends \yii\db\ActiveRecord
      */
     public function getCuotaMeter()
     {
-        return $this->hasOne(PublicServiceCoutaMeter::className(), ['id' => 'id_cuota_meter']);
+        return $this->hasOne(PublicServiceCuotaMeter::className(), ['id' => 'id_cuota_meter']);
     }
 
     /**
