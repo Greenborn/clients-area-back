@@ -16,11 +16,11 @@ class m211214_083258_create_contact_table extends Migration
         $this->createTable('contact_message', [
             'id'       => Schema::TYPE_PK,
             'name'     => $this->string()->notNull(),
-            'surname'  => $this->string()->notNull(),
+            'surname'  => $this->string(),
             'email'    => $this->string(),
             'tel'      => $this->string(),
             'message'  => $this->text()->notNull(),
-            'datetime' => $this->dateTime()->notNull(),
+            'datetime' => $this->dateTime(),
         ]);
     }
 
