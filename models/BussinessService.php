@@ -73,4 +73,11 @@ class BussinessService extends \yii\db\ActiveRecord
     {
         return $this->hasOne(TranslateTerms::className(), ['cod' => 'id_name_translate_cod']);
     }
+
+    public function extraFields() {
+        return [ 
+            'descriptionTranslateCod',  'description',
+            'nameTranslateCod',  'name',
+        ];
+    }
 }

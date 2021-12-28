@@ -13,8 +13,8 @@ class m211217_051410_insert_contact_types extends Migration
     public function safeUp()
     {
         //RESTRICCIONES
-        $this->addForeignKey(
-            'fk-name_translate_cod',
+        /*$this->addForeignKey(
+            'fk-name_translate_cod345',
             'contact_type',
             'name_translate_cod',
             'translate_terms',
@@ -29,7 +29,7 @@ class m211217_051410_insert_contact_types extends Migration
             'translate_terms',
             'cod',
             'CASCADE'
-        );
+        );*/
         
 
         //FACEBOOK

@@ -19,7 +19,7 @@ class m211228_125025_create_table_bussiness_service extends Migration
             'order'                        => $this->integer(),
             'img_src'                      => $this->string()
         ]);
-
+/*
         $this->addForeignKey(
             'fk-id_name_translate_codbussiness_service',
             'bussiness_service',
@@ -36,7 +36,7 @@ class m211228_125025_create_table_bussiness_service extends Migration
             'cod',
             'CASCADE'
         );
-
+*/
         // DESARROLLO DE APPS MOVILES
         $this->insert('terms',
             [ 
