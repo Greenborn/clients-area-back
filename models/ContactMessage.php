@@ -31,11 +31,16 @@ class ContactMessage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'surname', 'message', 'datetime'], 'required'],
+            [['name', 'message'], 'required'],
             [['message'], 'string'],
-            [['datetime'], 'safe'],
             [['name', 'surname', 'email', 'tel'], 'string', 'max' => 255],
         ];
+    }
+
+    public function beforeSave($insert) {
+        $fechaHora  = new \DateTime();
+        $this->datetime = $fechaHora->format('Y-m-d H:i:s');
+        return parent::beforeSave($insert);
     }
 
     /**
