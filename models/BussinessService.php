@@ -33,10 +33,8 @@ class BussinessService extends \yii\db\ActiveRecord
     {
         return [
             [['id_name_translate_cod', 'id_description_translate_cod'], 'required'],
-            [['id_name_translate_cod', 'id_description_translate_cod', 'order'], 'integer'],
+            [['order'], 'integer'],
             [['img_src'], 'string', 'max' => 255],
-            [['id_description_translate_cod'], 'exist', 'skipOnError' => true, 'targetClass' => TranslateTerms::className(), 'targetAttribute' => ['id_description_translate_cod' => 'cod']],
-            [['id_name_translate_cod'], 'exist', 'skipOnError' => true, 'targetClass' => TranslateTerms::className(), 'targetAttribute' => ['id_name_translate_cod' => 'cod']],
         ];
     }
 
@@ -47,37 +45,8 @@ class BussinessService extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_name_translate_cod' => 'Id Name Translate Cod',
-            'id_description_translate_cod' => 'Id Description Translate Cod',
             'order' => 'Order',
             'img_src' => 'Img Src',
-        ];
-    }
-
-    /**
-     * Gets query for [[DescriptionTranslateCod]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDescriptionTranslateCod()
-    {
-        return $this->hasOne(TranslateTerms::className(), ['cod' => 'id_description_translate_cod']);
-    }
-
-    /**
-     * Gets query for [[NameTranslateCod]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getNameTranslateCod()
-    {
-        return $this->hasOne(TranslateTerms::className(), ['cod' => 'id_name_translate_cod']);
-    }
-
-    public function extraFields() {
-        return [ 
-            'descriptionTranslateCod',  'description',
-            'nameTranslateCod',  'name',
         ];
     }
 }
