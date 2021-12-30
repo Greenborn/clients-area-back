@@ -80,7 +80,7 @@ class PublicBaseController extends ActiveController {
       $servicio = PublicService::find()->where(['controller' => $controller])->one();
       $cuota    = PublicServiceCuota::find()->where(['id_public_service' => $servicio->id])
                    ->joinWith('cuotaMeter')->all()[0]->getCuotaMeter()->primaryModel->getRelatedRecords()['cuotaMeter'];
-
+  
     //se verifica que haya limnite de cuota, si no hay enteonce se continua sin registrar nada
       if ($cuota->amount == -1 && $cuota->time_lapse_seconds == -1){
         return parent::beforeAction($event);
