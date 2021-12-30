@@ -44,7 +44,7 @@ class m211228_125025_create_table_bussiness_service extends Migration
                 'name'        => "Desarrollo de APP's Moviles", 
                 'description' => "Programamos la APP que necesita, para luego poder exportarla a plataformas Android e IOs, utilizamos Frameworks hibridos como Ionic y React Native.",
                 'order'       => 10,
-                'img_src'     => 'assets/img/icon1.svg'
+                'img_src'     => 'public/img/icon1.svg'
             ]);
 
         //WEB SCRAPPING
@@ -54,7 +54,7 @@ class m211228_125025_create_table_bussiness_service extends Migration
                 'name'        => "Web Scraping", 
                 'description' => "Descargamos información de sitios públicos de su elección para que Ud. pueda disponer de dicha información ya sea en formatos .CSV, Hoja de Cálculo,  Base de datos u otros a determinar.",
                 'order'       => 20,
-                'img_src'     => 'assets/img/icon2.svg'
+                'img_src'     => 'public/img/icon2.svg'
             ]);
 
         //Migración Web
@@ -64,17 +64,17 @@ class m211228_125025_create_table_bussiness_service extends Migration
                 'name'        => "Migración Web", 
                 'description' => "Migramos el contenido de su actual página web, sin importar en que CMS esté desarrollada o otro CMS de su elección, nueva APP Movil o de Escritorio.",
                 'order'       => 30,
-                'img_src'     => 'assets/img/icon3.svg'
+                'img_src'     => 'public/img/icon3.svg'
             ]);
 
         //Solución de Errores
-             $this->insert('bussiness_service',
+        $this->insert('bussiness_service',
             [ 
                 'id'          => 4,
                 'name'        => "Solución de Errores", 
                 'description' => 'Resolvemos aquellos errores que pudieran estar presentes en el código de su APP o que se deban a defectos de configuración de su servidor.',
                 'order'       => 40,
-                'img_src'     => 'assets/img/icon4.svg'
+                'img_src'     => 'public/img/icon4.svg'
             ]);
 
         //Se insertan registros indicando a la API de que se trata de un servicio publico sin limite de consultas

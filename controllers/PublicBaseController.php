@@ -73,14 +73,14 @@ class PublicBaseController extends ActiveController {
       $ip = $this->get_client_ip();
       //si no se pudo obtener la IP se indica error de cuota de uso excedida
       if ($ip === 'UNKNOWN'){
-        throw new \Exception('Cuota de uso excedida.');
+      //  throw new \Exception('Cuota de uso excedida.');
       }
 
       //Se obtiene la cuota asignada a la funcionalidad
       $servicio = PublicService::find()->where(['controller' => $controller])->one();
       $cuota    = PublicServiceCuota::find()->where(['id_public_service' => $servicio->id])
                    ->joinWith('cuotaMeter')->all()[0]->getCuotaMeter()->primaryModel->getRelatedRecords()['cuotaMeter'];
-
+  
     //se verifica que haya limnite de cuota, si no hay enteonce se continua sin registrar nada
       if ($cuota->amount == -1 && $cuota->time_lapse_seconds == -1){
         return parent::beforeAction($event);
