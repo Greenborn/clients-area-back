@@ -68,7 +68,7 @@ class m211228_125025_create_table_bussiness_service extends Migration
             ]);
 
         //Solución de Errores
-             $this->insert('bussiness_service',
+        $this->insert('bussiness_service',
             [ 
                 'id'          => 4,
                 'name'        => "Solución de Errores", 
