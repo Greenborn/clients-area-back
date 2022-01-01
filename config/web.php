@@ -113,6 +113,11 @@ $config = [
                     'controller' => 'public-product',
                     'pluralize' => false,
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'sign-up',
+                    'pluralize' => false,
+                ]
             ],
         ],
     ],

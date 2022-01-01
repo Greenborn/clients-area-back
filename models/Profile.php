@@ -33,11 +33,8 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fotoclub_id'], 'required'],
-            [['fotoclub_id'], 'integer'],
             [['name'], 'string', 'max' => 59],
             [['last_name', 'img_url'], 'string', 'max' => 50],
-            [['fotoclub_id'], 'exist', 'skipOnError' => true, 'targetClass' => Fotoclub::className(), 'targetAttribute' => ['fotoclub_id' => 'id']],
         ];
     }
 
@@ -50,7 +47,6 @@ class Profile extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'last_name' => 'Last Name',
-            'fotoclub_id' => 'Fotoclub ID',
         ];
     }
 
@@ -107,17 +103,8 @@ class Profile extends \yii\db\ActiveRecord
       
         return parent::beforeSave($insert);
       
-      }
-    /**
-     * Gets query for [[Fotoclub]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFotoclub()
-    {
-        return $this->hasOne(Fotoclub::className(), ['id' => 'fotoclub_id']);
     }
-
+    
     /**
      * Gets query for [[ProfileContests]].
      *
@@ -161,17 +148,10 @@ class Profile extends \yii\db\ActiveRecord
     public function fields() {
         $fields = parent::fields();
 
-        
-        // expand por default
-        // unset( $fields['fotoclub_id'],
-        //      );
-        // $fields[] = 'fotoclub'; 
-        // $fields[] = 'user'; 
-
         return $fields;
     }
 
     public function extraFields() {
-        return [ 'user', 'fotoclub' ];
+        return [ 'user' ];
     }
 }
