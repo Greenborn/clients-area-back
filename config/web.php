@@ -75,6 +75,8 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'category', 'pluralize' => false,],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'post', 'pluralize' => false,],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'tag', 'pluralize' => false,],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'public-bug-report', 'pluralize' => false],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'public-bug-report-image', 'pluralize' => false],
             ],
         ],
     ],
