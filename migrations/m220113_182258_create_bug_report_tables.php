@@ -23,6 +23,7 @@ class m220113_182258_create_bug_report_tables extends Migration
         $this->createTable('proyect', [
             'id'            => $this->primaryKey(),
             'name'          => $this->text()->notNull(),
+            'code'          => $this->string()->notNull(),
         ]);
 
         $this->createTable('bug_report_image', [
