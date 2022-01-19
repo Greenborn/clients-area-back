@@ -63,7 +63,7 @@ class PublicBaseController extends ActiveController {
     {
       
       $controller = get_class($event);
-      if ($controller == 'yii\rest\OptionsAction' || $controller == 'yii\rest\CreateAction' || $controller == 'yii\rest\IndexAction'){
+      if ($controller == 'yii\rest\OptionsAction' || $controller == 'yii\rest\CreateAction' || $controller == 'yii\rest\ViewAction' || $controller == 'yii\rest\IndexAction'){
         $controller = get_class($event->controller);
       }
 
