@@ -37,6 +37,7 @@ class CargarPalabrasAleatoriasController extends Controller
 
     public function actionIndex($ruta = '')
     {
+        $caracteres_excluidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0','>','<','%','€','.',':',',','_','-','(',')','[',']',';', '@', '*', '+', '"', "'", '&', '=', '¿', '?', '!', '¡', '|', 'º', '$', '#', '{', '}'];
         if ($ruta == ''){
             echo 'Es necesario especificar la ruta del archivo'. "\n";
             return ExitCode::OK;
@@ -45,7 +46,9 @@ class CargarPalabrasAleatoriasController extends Controller
         $archivo = fopen($ruta, 'r');
 
         while( !feof($archivo)){
-            $this->insertToDB( explode(' ', fgets($archivo)) );
+            $linea = fgets($archivo);
+            $linea = str_replace($caracteres_excluidos,'', $linea);
+            $this->insertToDB( explode(' ', $linea) );
         }
         
         fclose($archivo);
