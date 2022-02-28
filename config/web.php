@@ -78,6 +78,7 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'public-bug-report', 'pluralize' => false],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'public-bug-report-image', 'pluralize' => false],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'public-proyect', 'pluralize' => false],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'public-random-word', 'pluralize' => false],
             ],
         ],
     ],
