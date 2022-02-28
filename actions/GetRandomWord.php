@@ -16,9 +16,13 @@ class GetRandomWord extends IndexAction {
       $count = $params['c'];
     }
     
-    $last_id = RandomWords::find()->orderBy('id DESC')->one();
+    $last_id = RandomWords::find()->orderBy('id DESC')->one()->id;
 
-    if ($last_id == NULL || $last_id < $count){
+    if ($last_id == NULL){
+      return [];
+    }
+
+    if ($last_id < $count){
       return [];
     }
 
