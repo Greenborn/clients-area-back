@@ -27,6 +27,7 @@ class CargarPalabrasAleatoriasController extends Controller
 
                 $rw             = new RandomWords();
                 $rw->word       = $palabras[$c];
+                $rw->length     = strlen($palabras[$c]);
                 $rw->created_at = $fechaHora->format('Y-m-d H:i:s');
                 $rw->save(false);
 
@@ -37,7 +38,11 @@ class CargarPalabrasAleatoriasController extends Controller
 
     public function actionIndex($ruta = '')
     {
-        $caracteres_excluidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0','>','<','%','€','.',':',',','_','-','(',')','[',']',';', '@', '*', '+', '"', "'", '&', '=', '¿', '?', '!', '¡', '|', 'º', '$', '#', '{', '}'];
+        $caracteres_excluidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0','>','<','%','€','«','»','.',
+                                 ':',',','_','-','(',')','[',']',';', '@', '*', '+', '"', "'", '&', '=', '¿', '?', 
+                                 '!', '¡', '|', '~', '½', '¬', '·', '/', '^', '¨', 'º', '$', '#', '{', '}', "\n", 'ç',
+                                 'ł', '€', '¶', 'ŧ', '←','↓', '→', 'ø', 'þ', 'æ', 'ß', 'ð', 'đ', 'ŋ', 'ħ', '¢', '─',
+                                 'µ'];
         if ($ruta == ''){
             echo 'Es necesario especificar la ruta del archivo'. "\n";
             return ExitCode::OK;
@@ -48,6 +53,7 @@ class CargarPalabrasAleatoriasController extends Controller
         while( !feof($archivo)){
             $linea = fgets($archivo);
             $linea = str_replace($caracteres_excluidos,'', $linea);
+            $linea = strtolower($linea);
             $this->insertToDB( explode(' ', $linea) );
         }
         
