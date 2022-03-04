@@ -11,9 +11,14 @@ class GetRandomWord extends IndexAction {
     $params = Yii::$app->request->get();
     $out    = [];
     $count  = 1;
+    $length = NULL;
 
     if (isset($params['c']) && is_numeric($params['c']) && $params['c'] > 0 && $params['c'] < 100){
       $count = $params['c'];
+    }
+
+    if (isset($params['l']) && is_numeric($params['l']) && $params['l'] > 0 && $params['l'] < 100){
+      $length = $params['l'];
     }
     
     $last_id = RandomWords::find()->orderBy('id DESC')->one()->id;
@@ -26,10 +31,16 @@ class GetRandomWord extends IndexAction {
       return [];
     }
 
+    $whereParams = [];
+    if ($length !== NULL){
+      $whereParams['length'] = $length;
+    }
+
     $c = 0;
     while ($c < $count){
       $rand_n = rand(1, $last_id);
-      $find_r = RandomWords::find()->where(['id' => $rand_n])->one();
+      $whereParams['id'] = $rand_n;
+      $find_r = RandomWords::find()->where( $whereParams )->one();
       if ($find_r != NULL){
         $out[] = $find_r->word;
         $c ++;
